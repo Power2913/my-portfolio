@@ -7,7 +7,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-type SectionId = "skills" | "projects" | "contact";
+type SectionId = "skills" | "projects" | "contact" | "experience";
 
 const projects = [
   {
@@ -86,6 +86,7 @@ export default function HomePage() {
     skills: null,
     projects: null,
     contact: null,
+    experience: null,
   });
 
   const scrollToSection = (id: SectionId) => {
@@ -136,6 +137,13 @@ export default function HomePage() {
             className="hover:text-sky-400 transition"
           >
             Skills
+          </a>
+          <a
+            href="#experience"
+            onClick={(e) => handleNavClick(e, "experience")}
+            className="hover:text-sky-400 transition"
+          >
+            Experience
           </a>
           <a
             href="#contact"
@@ -253,6 +261,85 @@ export default function HomePage() {
               {skill}
             </span>
           ))}
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section
+        id="experience"
+        ref={(el) => {
+          // @ts-ignore
+          sectionRefs.current.experience = el;
+        }}
+        className="space-y-6"
+      >
+        <h2 className="font-heading text-xl sm:text-2xl font-semibold tracking-tight">
+          Work Experience
+        </h2>
+
+        <div className="space-y-8">
+
+          {/* Senior Software Engineer */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+            <h3 className="font-heading text-lg font-semibold mb-1 text-slate-100">
+              Senior Software Engineer — Graphicosmos
+            </h3>
+            <p className="text-xs text-slate-400 mb-2">Sep 2025 — Present · Full-time</p>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Handling full-stack development, system architecture, client communication,
+              and end-to-end project delivery. Building scalable applications using
+              Laravel, Vue.js, Nuxt.js, Next.js, Shopify, MySQL, and Tailwind CSS. Focus
+              on performance optimization, secure deployments, and translating business
+              needs into clean technical solutions.
+            </p>
+            <p className="text-xs text-sky-400 mt-2">
+              Key Skills: Laravel · PHP · React.js · Vue.js · Next.js · Tailwind CSS · Shopify · WordPress
+            </p>
+          </div>
+
+          {/* Frontend Developer — TradeImeX */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+            <h3 className="font-heading text-lg font-semibold mb-1 text-slate-100">
+              Frontend Developer — TradeImeX Info Pvt. Ltd.
+            </h3>
+            <p className="text-xs text-slate-400 mb-2">Sep 2023 — Sep 2025 · Full-time</p>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Led frontend and backend functionality for major Tradeimex platforms.
+              Built and optimized large-scale data systems using Laravel, Vue.js, Nuxt.js,
+              and MySQL. Managed 35M+ record databases, indexing strategies, hosting,
+              and security. Developed custom search engines and high-availability data
+              pages without external APIs.
+            </p>
+            <p className="text-xs text-sky-400 mt-2">
+              Skills: Laravel · MySQL · Nuxt.js · Vue.js · Hosting · Security · API Development
+            </p>
+          </div>
+
+          {/* Junior Software Developer */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+            <h3 className="font-heading text-lg font-semibold mb-1 text-slate-100">
+              Junior Software Developer — Eternity Automation Pvt. Ltd.
+            </h3>
+            <p className="text-xs text-slate-400 mb-2">Jun 2023 — Sep 2023 · Full-time</p>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Supported full-stack development with HTML, CSS, JavaScript, jQuery,
+              Bootstrap, PHP, and PhpMyAdmin. Collaborated with senior engineers to
+              deliver features across the full lifecycle.
+            </p>
+          </div>
+
+          {/* Fullstack Developer — Unnat Tech */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+            <h3 className="font-heading text-lg font-semibold mb-1 text-slate-100">
+              Full-Stack Developer — Unnat Technology Services
+            </h3>
+            <p className="text-xs text-slate-400 mb-2">May 2022 — Jun 2023 · Full-time</p>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Worked on full-stack development for enterprise clients, delivering
+              complete software solutions from UI to backend logic.
+            </p>
+          </div>
+
         </div>
       </section>
 

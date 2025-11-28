@@ -16,9 +16,38 @@ const bodyFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Shakti | Software Engineer",
+  title: "Shakti Raghav | Senior Software Engineer & Full-Stack Developer",
   description:
-    "Portfolio of a full-stack developer specializing in Laravel, Vue, Shopify & Next.js.",
+    "Portfolio of Shakti Raghav — Senior Software Engineer specializing in Laravel, Vue.js, Next.js, Shopify, Tailwind CSS, and scalable full-stack development. I build high-performance web applications, custom Shopify stores, and automation tools for global brands.",
+  keywords: [
+    "Shakti Raghav",
+    "Software Engineer",
+    "Full Stack Developer",
+    "Shopify Developer",
+    "Laravel Developer",
+    "Vue.js Developer",
+    "Next.js Developer",
+    "Tailwind CSS",
+    "MySQL",
+    "Freelance Developer",
+    "Ecommerce Developer",
+  ],
+  openGraph: {
+    title: "Shakti Raghav — Senior Software Engineer",
+    description:
+      "Full-stack engineer skilled in Laravel, Vue.js, Next.js, Shopify, PHP, and scalable architectures. Explore my work, tech stack, and client projects.",
+    url: "https://your-vercel-url-here",
+    siteName: "Shakti Raghav Portfolio",
+    images: [
+      {
+        url: "/og.png", // we can create one later
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
