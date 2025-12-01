@@ -146,6 +146,12 @@ export default function HomePage() {
             Experience
           </a>
           <a
+            href="/blog"
+            className="hover:text-sky-400 transition"
+          >
+            Blog
+          </a>
+          <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "contact")}
             className="hover:text-sky-400 transition"
