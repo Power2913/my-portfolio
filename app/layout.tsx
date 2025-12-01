@@ -16,9 +16,9 @@ const bodyFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Shakti Raghav | Senior Software Engineer & Full-Stack Developer",
+  title: "Shakti Raghav | Software Engineer & Full-Stack Developer",
   description:
-    "Portfolio of Shakti Raghav — Senior Software Engineer specializing in Laravel, Vue.js, Next.js, Shopify, Tailwind CSS, and scalable full-stack development. I build high-performance web applications, custom Shopify stores, and automation tools for global brands.",
+    "Portfolio of Shakti Raghav — Software Engineer specializing in Laravel, Vue.js, Next.js, Shopify, Tailwind CSS, and scalable full-stack development. I build high-performance web applications, custom Shopify stores, and automation tools for global brands.",
   keywords: [
     "Shakti Raghav",
     "Software Engineer",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Ecommerce Developer",
   ],
   openGraph: {
-    title: "Shakti Raghav — Senior Software Engineer",
+    title: "Shakti Raghav — Software Engineer",
     description:
       "Full-stack engineer skilled in Laravel, Vue.js, Next.js, Shopify, PHP, and scalable architectures. Explore my work, tech stack, and client projects.",
     url: "https://your-vercel-url-here",

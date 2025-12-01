@@ -285,10 +285,10 @@ export default function HomePage() {
 
         <div className="space-y-8">
 
-          {/* Senior Software Engineer */}
+          {/* Software Engineer */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
             <h3 className="font-heading text-lg font-semibold mb-1 text-slate-100">
-              Senior Software Engineer — Graphicosmos
+              Software Engineer — Graphicosmos
             </h3>
             <p className="text-xs text-slate-400 mb-2">Sep 2025 — Present · Full-time</p>
             <p className="text-sm text-slate-300 leading-relaxed">
