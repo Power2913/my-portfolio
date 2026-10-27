@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
 
             And this happens *before* they scroll.
 
-            When I rebuilt websites for brands like **Khanijo**, **11Tareng**, and several coaching platforms, the same feedback repeated:
+            When I rebuilt websites for brands like **11Tareng** and several coaching platforms, the same feedback repeated:
 
             > “This finally looks like a brand people can trust.”
 
@@ -134,9 +134,6 @@ export const blogPosts: BlogPost[] = [
 
             5. Real-World Examples from Clients I’ve Helped
 
-            Khanijo
-            Premium fashion brand → Fixed performance issues, improved mobile UX, and optimized product viewing experience.
-
             11Tareng
             Fully custom Shopify theme → Rebuilt from scratch using Tailwind CSS, Foxify overrides, and a new modern catalog flow.
 
@@ -165,11 +162,9 @@ export const blogPosts: BlogPost[] = [
             This is exactly what I focus on when building for any client — whether it’s a fashion brand, a coach, or a B2B company.
 
 
-            Want Your Brand to Stand Out?
+            The Takeaway
 
-            If you're serious about growing your business with a clean, fast, high-conversion website:
-
-            **Reach out anytime — I’d be happy to build something exceptional for you.**
+            A clean, fast website isn’t a design preference — it’s infrastructure for trust, speed, and sales. That’s the standard I hold every build to, from Shopify storefronts to large data platforms.
         `,
         publishedAt: "2025-11-30",
         tags: ["Web Development", "Business", "Performance", "UX"],
@@ -290,13 +285,6 @@ export const blogPosts: BlogPost[] = [
             - Tweaked product layouts, cart experience, and micro-interactions  
             - Focused on making the catalogue feel like a curated fashion experience  
 
-            Khanijo
-            With Khanijo, the focus was:
-            - Making products feel premium  
-            - Cleaning the navigation and sections  
-            - Fixing scroll and spacing issues  
-            - Improving mobile performance  
-
             Other fashion & lifestyle brands
             The pattern is always the same:
             - Template looked okay  
@@ -352,11 +340,9 @@ export const blogPosts: BlogPost[] = [
             Then it might be time to move to a custom Shopify build.
 
 
-            Want to Talk About Your Store?
+            The Takeaway
 
-            If you’re thinking about redesigning or upgrading your Shopify store and want a developer who understands both **fashion brands** and **performance-focused builds**, I’d be happy to look at your current setup and suggest a practical roadmap.
-
-            You can reach out, share your store link, and we’ll figure out what makes sense for your brand’s next stage of growth.
+            Template or custom isn’t really a design question — it’s a question of where the business is. Making that call at the right time saves a brand from a full rebuild later.
         `,
         publishedAt: "2025-12-01",
         tags: ["Shopify", "Ecommerce", "Fashion Brands", "Conversion"],
@@ -490,9 +476,7 @@ export const blogPosts: BlogPost[] = [
 
             Fixing even one of these mistakes can significantly improve how customers perceive your business.
 
-            If you're a small business owner looking to upgrade your site, improve conversions, or redesign your brand’s online presence — I’d be happy to help you plan the right structure and strategy.
-
-            Let’s build something that actually grows your business.`,
+            Most of these fixes are small. Their effect on how customers see a business is not.`,
         publishedAt: "2025-12-02",
         tags: ["Business", "UX", "Web Development", "Branding"],
     },

@@ -1,54 +1,119 @@
 // app/layout.tsx
-import { Analytics } from "@vercel/analytics/next"
-import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
+import {
+  Space_Grotesk,
+  Inter,
+  JetBrains_Mono,
+  Playfair_Display,
+  DM_Sans,
+} from "next/font/google";
 import "./globals.css";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { site, experience, education } from "@/lib/content";
 
-const headingFont = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-space-grotesk",
   weight: ["500", "600", "700"],
+  display: "swap",
 });
 
-const bodyFont = Inter({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+// Only used inside the Gunasheela / 11Tareng project previews.
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+const description =
+  "Shakti Raghav — Full-Stack Developer with 4+ years building SaaS products, custom Shopify themes and data-heavy Laravel platforms. Lead developer of Cosmos Connect, a live WhatsApp Business SaaS.";
 
 export const metadata: Metadata = {
-  title: "Shakti Raghav | Software Engineer & Full-Stack Developer",
-  description:
-    "Portfolio of Shakti Raghav — Software Engineer specializing in Laravel, Vue.js, Next.js, Shopify, Tailwind CSS, and scalable full-stack development. I build high-performance web applications, custom Shopify stores, and automation tools for global brands.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — Full-Stack Developer | SaaS, Shopify & Laravel`,
+    template: `%s | ${site.name}`,
+  },
+  description,
   keywords: [
     "Shakti Raghav",
-    "Software Engineer",
-    "Full Stack Developer",
+    "Full-Stack Developer",
     "Shopify Developer",
     "Laravel Developer",
+    "Python Developer",
+    "Elasticsearch",
+    "SaaS Developer",
     "Vue.js Developer",
     "Next.js Developer",
-    "Tailwind CSS",
-    "MySQL",
-    "Freelance Developer",
-    "Ecommerce Developer",
+    "Gurugram",
+    "India",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Shakti Raghav — Software Engineer",
-    description:
-      "Full-stack engineer skilled in Laravel, Vue.js, Next.js, Shopify, PHP, and scalable architectures. Explore my work, tech stack, and client projects.",
-    url: "https://your-vercel-url-here",
-    siteName: "Shakti Raghav Portfolio",
-    images: [
-      {
-        url: "/og.png", // we can create one later
-        width: 1200,
-        height: 630,
-      },
-    ],
+    title: `${site.name} — Full-Stack Developer`,
+    description,
+    url: site.url,
+    siteName: `${site.name} Portfolio`,
     locale: "en_IN",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — Full-Stack Developer`,
+    description,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0c10",
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.title,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  sameAs: [site.linkedin, site.github],
+  worksFor: { "@type": "Organization", name: experience[0].company },
+  alumniOf: { "@type": "CollegeOrUniversity", name: education.school },
+  address: { "@type": "PostalAddress", addressCountry: "IN" },
+  knowsAbout: [
+    "Python",
+    "Laravel",
+    "PHP",
+    "Shopify Liquid",
+    "MySQL",
+    "Elasticsearch",
+    "Vue.js",
+    "Nuxt.js",
+    "Next.js",
+    "WordPress",
+  ],
 };
 
 export default function RootLayout({
@@ -59,18 +124,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${headingFont.variable} ${bodyFont.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} ${playfair.variable} ${dmSans.variable}`}
     >
-      <head>
-        {/* GOOGLE FONTS */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-          rel="stylesheet"
+      <body className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-      </head>
-
-      <body className="min-h-screen bg-slate-950 text-slate-100 font-body">
         {children}
+        <Analytics />
       </body>
     </html>
   );

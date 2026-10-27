@@ -25,7 +25,7 @@ In this post, I break down why a clean, fast website matters more than ever, and
 2. Performance: why page load time directly affects conversions.
 3. UX and clarity: making it easy for users to take action.
 4. Tech stack choices: when I use Shopify, Laravel, or Next.js.
-5. Real examples from projects like Khanijo, 11Tareng, and Tradeimex.
+5. Real examples from projects like 11Tareng and Tradeimex.
 
 This is written for non-technical founders and business owners who want to understand how a good website translates to actual ROI, not just “looking nice on the internet”.
 `,

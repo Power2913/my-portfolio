@@ -1,90 +1,72 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import { blogPosts } from "./posts";
-import { timeAgo } from "./utils";
 
-export const metadata = {
-  title: "Blog | Shakti Raghav",
+export const metadata: Metadata = {
+  title: "Writing",
   description:
-    "Articles by Shakti Raghav on Shopify development, Laravel, performance, Next.js, and practical web development for real businesses.",
+    "Articles by Shakti Raghav on Shopify development, Laravel, performance and practical web development for real businesses.",
+  alternates: { canonical: "/blog" },
 };
 
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
+}
+
 export default function BlogPage() {
-  const posts = [...blogPosts].sort((a, b) =>
-    a.publishedAt < b.publishedAt ? 1 : -1
-  );
+  const posts = [...blogPosts].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 
   return (
-    <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
-        <nav className="text-xs text-slate-400 flex items-center gap-1 mb-4">
-            <Link href="/" className="hover:text-slate-200 transition">
-                Home
-            </Link>
-            <span className="text-slate-500">/</span>
-
-            <span className="text-slate-500">
-                Blog
-            </span>
+    <>
+      <SiteHeader base="/" />
+      <main className="mx-auto flex max-w-[960px] flex-col gap-10 px-4 pb-24 pt-10 sm:px-8">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 font-mono text-[12px] text-dim">
+          <Link href="/" className="hover:text-accent">Home</Link>
+          <span>/</span>
+          <span className="text-muted">Writing</span>
         </nav>
 
-
-        <header className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.2em] text-sky-400">
-            Blog
-            </p>
-            <h1 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight">
-            Articles & insights
-            </h1>
-            <p className="text-sm text-slate-300 max-w-2xl">
-            I write about building fast Shopify stores, scalable Laravel + Vue
-            platforms, and practical tips for founders and developers who care
-            about performance and clarity.
-            </p>
+        <header className="flex flex-col gap-3">
+          <p className="font-mono text-[13px] tracking-[0.04em] text-accent">WRITING</p>
+          <h1 className="text-[clamp(34px,4.5vw,52px)] font-semibold leading-[1.05] tracking-[-0.03em]">
+            Articles &amp; notes
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-muted">
+            On building fast Shopify stores, scalable Laravel and Vue platforms, and what a well-built
+            website actually does for a business.
+          </p>
         </header>
 
-      <section className="space-y-5">
-        {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="group rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:border-sky-500/70 hover:bg-slate-900/70 transition"
-          >
-            <div className="flex items-center justify-between gap-3 mb-2">
-              <p className="text-xs text-slate-400">
-                {new Date(post.publishedAt).toLocaleDateString("en-IN", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}{" "}
-                · {timeAgo(post.publishedAt)}
-              </p>
-            </div>
-            <h2 className="font-heading text-lg sm:text-xl font-semibold text-slate-100 mb-1">
-              <Link
-                href={`/blog/${post.slug}`}
-                className="hover:text-sky-400 transition"
-              >
-                {post.title}
-              </Link>
-            </h2>
-            <p className="text-sm text-slate-300 mb-3">{post.excerpt}</p>
-            <div className="flex flex-wrap gap-2 mb-3">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[11px] rounded-full border border-slate-700 px-2 py-0.5 text-slate-400"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <Link
-              href={`/blog/${post.slug}`}
-              className="text-xs font-medium text-sky-400 hover:text-sky-300"
+        <section className="flex flex-col gap-5">
+          {posts.map((post) => (
+            <article
+              key={post.slug}
+              className="tilt flex flex-col gap-3 rounded-[20px] border border-line bg-surface p-6"
             >
-              Read article ↗
-            </Link>
-          </article>
-        ))}
-      </section>
-    </main>
+              <p className="font-mono text-[12px] text-dim">{formatDate(post.publishedAt)}</p>
+              <h2 className="text-xl font-semibold sm:text-2xl">
+                <Link href={`/blog/${post.slug}`} className="transition hover:text-accent">
+                  {post.title}
+                </Link>
+              </h2>
+              <p className="text-[15px] leading-relaxed text-muted">{post.excerpt}</p>
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span key={tag} className="rounded-full border border-line2 px-2.5 py-0.5 font-mono text-[11px] text-muted">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Link href={`/blog/${post.slug}`} className="inline-flex min-h-11 items-center text-sm font-medium text-accent hover:text-accent-hi">
+                Read article →
+              </Link>
+            </article>
+          ))}
+        </section>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
